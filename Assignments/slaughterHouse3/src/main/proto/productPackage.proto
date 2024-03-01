@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "via.sdj3.grpcspringboot.generated";
+
+service ProductPackageService {
+	//unary
+	rpc packageProduct(PackageRequest) returns(PackageResponse);
+	//rpc getProduct(google.protobuf.Int32Value) returns (Product) {};
+}
+
+message Product {
+	int32 id = 1;
+	string name = 2;
+	double netWeight = 3;
+	string description = 4;
+}
+
+message PackageRequest {
+	Product product = 1;
+}
+
+message PackageResponse {
+	string result = 1;
+}
+
+
