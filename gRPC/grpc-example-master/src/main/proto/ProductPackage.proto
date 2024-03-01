@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "via.sdj3.grpc.generated";
+
+message Product {  // Animal Product
+	string animal_id = 1;
+	string animal_part = 2;
+}
+
+message PackageRequest {
+	Product product = 1;
+}
+
+message PackageResponse {
+	string result = 1;
+}
+
+service ProductPackageService {
+	//unary
+	rpc packageProduct(PackageRequest) returns(PackageResponse);
+}
